@@ -149,6 +149,71 @@ const arraySet = [1, 2, 3, 4, 5];
 const k = 2;
 console.log(rotateArray(arraySet, k)); // Output: [4, 5, 1, 2, 3]
 
+//IFFE programs
+(function() {
+    // a. Print odd numbers in an array
+    var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var oddNumbers = numbers.filter(function(num) {
+        return num % 2 !== 0;
+    });
+    console.log("Odd numbers:", oddNumbers);
+
+    // b. Convert all the strings to title caps in a string array
+    var strings = ["hello", "world", "javascript"];
+    var titleCaps = strings.map(function(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    });
+    console.log("Title caps:", titleCaps);
+
+    // c. Sum of all numbers in an array
+    var numbersSum = numbers.reduce(function(acc, curr) {
+        return acc + curr;
+    }, 0);
+    console.log("Sum of numbers:", numbersSum);
+
+    // d. Return all the prime numbers in an array
+    var primes = numbers.filter(function(num) {
+        for (var i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) return false;
+        }
+        return num > 1;
+    });
+    console.log("Prime numbers:", primes);
+
+    // e. Return all the palindromes in an array
+    var palindromes = strings.filter(function(str) {
+        return str === str.split('').reverse().join('');
+    });
+    console.log("Palindromes:", palindromes);
+
+    // f. Return median of two sorted arrays of the same size
+    var arr1 = [1, 3, 5];
+    var arr2 = [2, 4, 6];
+    var mergedArr = arr1.concat(arr2);
+    mergedArr.sort(function(a, b) {
+        return a - b;
+    });
+    var median;
+    var mid = Math.floor(mergedArr.length / 2);
+    if (mergedArr.length % 2 === 0) {
+        median = (mergedArr[mid - 1] + mergedArr[mid]) / 2;
+    } else {
+        median = mergedArr[mid];
+    }
+    console.log("Median:", median);
+
+    // g. Remove duplicates from an array
+    var uniqueNumbers = Array.from(new Set(numbers));
+    console.log("Unique numbers:", uniqueNumbers);
+
+    // h. Rotate an array by k times
+    var k = 2;
+    for (var i = 0; i < k; i++) {
+        numbers.unshift(numbers.pop());
+    }
+    console.log("Rotated array:", numbers);
+})();
+
 // Do the below programs in JS with arrow functions.
 
 // 1. Print odd numbers in an array
